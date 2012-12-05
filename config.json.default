@@ -1,0 +1,12 @@
+{
+  "serials" : {
+    "jeelink" : {
+      "port" : "/dev/cu.usbserial-A900cbRv",
+      "baud" : 57600
+    },
+    "cul" : {
+      "port" : "",
+      "baud" : 0
+    }
+  }
+}
