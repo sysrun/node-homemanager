@@ -1,12 +1,25 @@
 {
   "serials" : {
     "jeelink" : {
-      "port" : "/dev/cu.usbserial-A900cbRv",
+      "port" : "/dev/cu.usbserial-A600cK5x",
       "baud" : 57600
     },
     "cul" : {
       "port" : "",
       "baud" : 0
     }
+  },
+  "cosm" : {
+    "buderus" : {
+      "feedid" : xxx,
+      "apikey" : "xxx"
+    },
+    "zitronenwaechter" : {
+      "feedid" : xxx,
+      "apikey" : "xxx"
+    }
+  },
+  "debug":{
+    "nobuderus": false
   }
 }
