@@ -20,6 +20,6 @@ modManager.init(function(){
       parser: serialport.parsers.readline("\n") 
   });
 
-  jeelinkSerial.on("data", modManager.get("jeelink").processData);
+  jeelinkSerial.on("data", modManager.getModule("jeelink").processData);
 
 });
