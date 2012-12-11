@@ -1,16 +1,25 @@
-var config = require("./config.json");
+
+// CONFIG GLOBAL!
+config = require("./config.json");
+
+
 var clc = require('cli-color');
+
 var serialport = require("serialport");
 var SerialPort = serialport.SerialPort; // localize object constructor
 
 
-var decoderJeelink = require("./lib/decoder/jeelink");
+modManager = require("./lib/modulemanager");
 
-var jeelinkSerial = new SerialPort(config.serials.jeelink.port, { 
-    baudrate: config.serials.jeelink.baud,
-    parser: serialport.parsers.readline("\n") 
-    //parser: serialport.parsers.readline("-> ack") 
+modManager.init(function(){
+  console.log(clc.blue.bold("Starting..."));
+  //console.log(modManager.modules())
+
+  var jeelinkSerial = new SerialPort(config.serials.jeelink.port, { 
+      baudrate: config.serials.jeelink.baud,
+      parser: serialport.parsers.readline("\n") 
+  });
+
+  jeelinkSerial.on("data", modManager.get("jeelink").processData);
+
 });
-
-console.log(clc.blue.bold("Starting..."));
-jeelinkSerial.on("data", decoderJeelink.processData);
